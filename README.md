@@ -43,16 +43,17 @@ Before running the project, make sure you have the following installed:
 
 3.  **Database Setup:**
 
-      * Create a new database in your MySQL server. For example: `CREATE DATABASE bank_db;`
+      * Create a new database in your MySQL server. For example: `CREATE DATABASE Bank_Management_System;`
       * Create a table named `bank_accounts` with the following schema:
         ```sql
+        USE Bank_Management_System;
         CREATE TABLE bank_accounts (
             account_id VARCHAR(20) PRIMARY KEY,
-            account_name VARCHAR(100) NOT NULL,
+            account_name VARCHAR(100),
             account_email VARCHAR(100),
             date_of_birth DATE,
             address_present VARCHAR(255),
-            amount NUMERIC(10, 2)
+            amount NUMERIC(12, 2)
         );
         ```
 
@@ -81,3 +82,4 @@ Before running the project, make sure you have the following installed:
     python main.py
     ```
 4.  Follow the on-screen instructions to perform banking operations.
+
