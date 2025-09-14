@@ -1,86 +1,58 @@
-# Bank Management System 
+Bank Management System
+This is a GUI-based Bank Management System built with Python's CustomTkinter library. The application provides a simple and user-friendly interface for common banking operations, including account creation, fund management, and balance inquiry.
 
-This is a simple console-based Bank Management System built with Python, designed to perform basic banking operations. It connects to a **MySQL** database to store and manage all account information.
+Features
+Create Account: Allows new users to create an account by providing personal details and an initial deposit.
 
------
+View All Accounts: Displays a list of all existing bank accounts in a scrollable table format.
 
-### Features 
+Deposit Money: Enables users to add funds to a specific account using its ID.
 
-  * **Create Account:** Allows you to create a new bank account by providing personal details and an initial deposit.
-  * **View All Accounts:** Displays a list of all existing bank accounts stored in the database.
-  * **Deposit Money:** Enables you to add funds to a specific account by providing the account ID and amount.
-  * **Withdraw Money:** Lets you withdraw money from an account, with a check for sufficient balance.
-  * **Check Balance:** Quickly checks the current balance of a specific account using its ID.
+Withdraw Money: Allows users to withdraw money from an account, with checks for sufficient balance.
 
------
+Check Balance: Provides a quick way to view the current balance of an account by entering the account ID.
 
-### Prerequisites 
+Modern GUI: The user interface is designed with a two-panel layout, featuring responsive images, consistent typography, and dynamic button styling.
 
-Before running the project, make sure you have the following installed:
+Technologies Used
+Python: The core programming language.
 
-  * **Python:** The project is written in Python.
-  * **MySQL Database:** You need a MySQL server to store the data.
-  * **MySQL Connector for Python:** This library allows your Python script to connect to the MySQL database. You can install it using pip:
-    ```bash
-    pip install mysql-connector-python
-    ```
+CustomTkinter: A modern and responsive GUI library for Python.
 
------
+Pillow (PIL): Used for handling and resizing images within the application.
 
-### Installation and Setup 
+Threading: Implemented to perform bank operations in a separate thread, ensuring the GUI remains responsive.
 
-1.  **Clone the Repository:**
+MySQL: The relational database used for persistent storage of all bank account data.
 
-    ```bash
-    git clone https://github.com/Tayif23/Bank_Management_System.git
-    ```
+Database Setup
+This project uses a MySQL database to store account information. Before running the application, you need to set up the database and the required table. Use the following SQL commands to create the Bank_Management_System database and the bank_accounts table.
 
-2.  **Navigate to the Project Directory:**
+CREATE DATABASE Bank_Management_System;
+USE Bank_Management_System;
 
-    ```bash
-    cd Bank_Management_System
-    ```
+CREATE TABLE bank_accounts (
+    account_id VARCHAR(20) PRIMARY KEY,
+    account_name VARCHAR(100),
+    account_email VARCHAR(100),
+    date_of_birth DATE,
+    address_present VARCHAR(255),
+    amount NUMERIC(12, 2)
+);
 
-3.  **Database Setup:**
+How to Run the Project
+Clone this repository or download the project files.
 
-      * Create a new database in your MySQL server. For example: `CREATE DATABASE Bank_Management_System;`
-      * Create a table named `bank_accounts` with the following schema:
-        ```sql
-        USE Bank_Management_System;
-        CREATE TABLE bank_accounts (
-            account_id VARCHAR(20) PRIMARY KEY,
-            account_name VARCHAR(100),
-            account_email VARCHAR(100),
-            date_of_birth DATE,
-            address_present VARCHAR(255),
-            amount NUMERIC(12, 2)
-        );
-        ```
+Ensure you have Python and MySQL installed.
 
-4.  **Configure Database Connection:**
+Set up the database as described in the "Database Setup" section above.
 
-      * Open the `db_connect.py` file.
-      * Update the connection details with your MySQL username, password, host, and database name.
-        ```python
-        def connect():
-            return mysql.connector.connect(
-                host="localhost",
-                user="your_username",
-                password="your_password",
-                database="your_database_name"
-            )
-        ```
+Install the required Python libraries using pip:
 
------
+pip install customtkinter Pillow mysql-connector-python
 
-### How to Run the Project 
+Run the main application file:
 
-1.  Open your terminal or command prompt.
-2.  Navigate to the project's main folder.
-3.  Run the main Python script:
-    ```bash
-    python main.py
-    ```
-4.  Follow the on-screen instructions to perform banking operations.
+python gui_app.py
 
-
+The application will launch, and you can begin performing bank management tasks.
