@@ -1,5 +1,5 @@
 mysql-connector-python
 
-pip install customtkinter
+install customtkinter
 
-pip install Pillow
+install Pillow
